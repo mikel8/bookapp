@@ -12,6 +12,12 @@ import WishListPage from "./WishListPage";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
+  
+  // Middleware to set Access-Control-Allow-Origin header
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://bookapp-production.up.railway.app/');
+  next();
+});
 
   useEffect(() => {
     const currentUser = auth.getCurrentUser();
